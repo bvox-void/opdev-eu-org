@@ -100,6 +100,13 @@
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.6px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.pill:hover {
+  color: #c9dceb;
+  border-color: rgba(91, 168, 232, 0.35);
+  background: rgba(91, 168, 232, 0.07);
 }
 
 .cta {
@@ -112,6 +119,8 @@
 }
 
 .primary {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -123,6 +132,31 @@
   font-weight: 700;
   letter-spacing: 0.4px;
   text-decoration: none;
+  transition:
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 224, 150, 0.08);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.primary:hover {
+  border-color: rgba(45, 224, 150, 0.75);
+  color: #e0f2fe;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 224, 150, 0.15);
+}
+
+.primary:hover::before {
+  opacity: 1;
 }
 
 .contacts {
@@ -141,6 +175,18 @@
   border-radius: 10px;
   background: rgba(13, 21, 32, 0.6);
   color: #c9dceb;
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease;
+}
+
+.contact:hover {
+  color: #e0f2fe;
+  border-color: rgba(91, 168, 232, 0.4);
+  background: rgba(91, 168, 232, 0.1);
+  transform: translateY(-2px);
 }
 
 @media (min-width: 993px) {
