@@ -24,62 +24,79 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.inner}>
-        <span className={styles.eyebrow}>e-commerce development</span>
+        <div className={styles.copy}>
+          <span className={styles.eyebrow}>e-commerce development</span>
 
-        <h1 className={styles.title}>
-          Custom stores,
-          <br />
-          built to{" "}
-          <span key={WORDS[wordIndex]} className={styles.word}>
-            {WORDS[wordIndex]}
-          </span>
-        </h1>
-
-        <p className={styles.text}>
-          Full-cycle development on React, Next.js & Shopify - from storefront
-          design to API integrations and SI automation.
-        </p>
-
-        <div className={styles.tech}>
-          {TECH.map((item) => (
-            <span key={item} className={styles.pill}>
-              {item}
+          <h1 className={styles.title}>
+            Custom stores,
+            <br />
+            built to{" "}
+            <span key={WORDS[wordIndex]} className={styles.word}>
+              {WORDS[wordIndex]}
             </span>
-          ))}
+          </h1>
+
+          <p className={styles.text}>
+            Full-cycle development on React, Next.js & Shopify - from storefront
+            design to API integrations and SI automation.
+          </p>
+
+          <div className={styles.tech}>
+            {TECH.map((item) => (
+              <span key={item} className={styles.pill}>
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div className={styles.cta}>
+            <Link href="/start" className={styles.primary}>
+              Build with me
+              <ArrowIcon />
+            </Link>
+
+            <div className={styles.contacts}>
+              <a
+                className={styles.contact}
+                href={TELEGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contact via Telegram"
+              >
+                <TelegramIcon />
+              </a>
+              <a
+                className={styles.contact}
+                href={X_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contact via X"
+              >
+                <XIcon />
+              </a>
+              <a
+                className={styles.contact}
+                href={`mailto:${EMAIL}`}
+                aria-label="Contact via Email"
+              >
+                <MailIcon />
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className={styles.cta}>
-          <Link href="/start" className={styles.primary}>
-            Build with me
-            <ArrowIcon />
-          </Link>
-
-          <div className={styles.contacts}>
-            <a
-              className={styles.contact}
-              href={TELEGRAM}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contact via Telegram"
-            >
-              <TelegramIcon />
-            </a>
-            <a
-              className={styles.contact}
-              href={X_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contact via X"
-            >
-              <XIcon />
-            </a>
-            <a
-              className={styles.contact}
-              href={`mailto:${EMAIL}`}
-              aria-label="Contact via Email"
-            >
-              <MailIcon />
-            </a>
+        <div className={styles.stage} aria-hidden="true">
+          <div className={styles.browser}>
+            <div className={styles.chrome}>
+              <span className={styles.dots}>
+                <i />
+                <i />
+                <i />
+              </span>
+              <span className={styles.url}>northline.shop</span>
+              <span className={styles.live}>live</span>
+            </div>
+            <div className={styles.viewport} />
           </div>
         </div>
       </div>

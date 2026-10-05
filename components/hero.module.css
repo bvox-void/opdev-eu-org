@@ -7,10 +7,22 @@
     max(32px, env(safe-area-inset-top))
     20px
     max(40px, env(safe-area-inset-bottom));
-  background: #0d1520;
+  background:
+    radial-gradient(ellipse 50% 70% at 88% 42%, rgba(91, 168, 232, 0.12), transparent 62%),
+    radial-gradient(ellipse 36% 46% at 72% 88%, rgba(45, 224, 150, 0.06), transparent 60%),
+    #101820;
 }
 
 .inner {
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.copy {
   width: 100%;
   max-width: 32rem;
   display: flex;
@@ -189,14 +201,101 @@
   transform: translateY(-2px);
 }
 
+.stage {
+  width: 100%;
+  max-width: 560px;
+}
+
+.browser {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 16 / 10;
+  border: 1px solid rgba(224, 242, 254, 0.1);
+  border-radius: 16px;
+  background: #17212c;
+  box-shadow:
+    inset 0 1px 0 rgba(224, 242, 254, 0.08),
+    0 24px 60px -28px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+}
+
+.chrome {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(224, 242, 254, 0.08);
+  background: #121a23;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(224, 242, 254, 0.22);
+}
+
+.url {
+  justify-self: center;
+  max-width: 100%;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #8ea6b8;
+  font-size: 0.72rem;
+  letter-spacing: 0.2px;
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #2de096;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2de096;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.viewport {
+  flex: 1;
+  background:
+    radial-gradient(ellipse 70% 80% at 70% 40%, rgba(91, 168, 232, 0.08), transparent 70%),
+    #141c26;
+}
+
 @media (min-width: 993px) {
   .hero {
     padding: 72px 30px;
   }
 
   .inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 48px;
+  }
+
+  .copy {
     align-items: flex-start;
     text-align: left;
+    max-width: none;
   }
 
   .tech,
@@ -206,6 +305,10 @@
 
   .text {
     font-size: 1rem;
+  }
+
+  .stage {
+    max-width: none;
   }
 }
 

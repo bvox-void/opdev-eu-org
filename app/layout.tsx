@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Opdev | E-commerce development",
   description:
-    "Custom stores on React, Next.js and Shopify — from storefront design to API integrations and AI automation.",
+    "Custom stores on React, Next.js and Shopify - from storefront design to API integrations and SI automation.",
 };
 
 export const viewport: Viewport = {
   colorScheme: "dark",
-  themeColor: "#0d1520",
+  themeColor: "#101820",
   width: "device-width",
   initialScale: 1,
 };
