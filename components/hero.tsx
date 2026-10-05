@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./hero.module.css";
 
 const WORDS = ["sell", "scale", "grow", "convert"];
-const TECH = ["React", "Next.js", "Shopify", "API integrations", "AI automation"];
+const TECH = ["React", "Next.js", "Shopify", "API integrations", "SI automation"];
 
 const TELEGRAM = "https://t.me/bvox_void";
 const X_URL = "https://x.com/opdev_tech";
@@ -36,8 +36,8 @@ export default function Hero() {
         </h1>
 
         <p className={styles.text}>
-          Full-cycle development on React, Next.js & Shopify — from storefront
-          design to API integrations and AI automation.
+          Full-cycle development on React, Next.js & Shopify - from storefront
+          design to API integrations and SI automation.
         </p>
 
         <div className={styles.tech}>
