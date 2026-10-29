@@ -1,4 +1,6 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 100svh;
   display: flex;
   align-items: center;
@@ -14,6 +16,8 @@
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1240px;
   display: flex;

@@ -1,0 +1,119 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* lets keyframes use 100cqh = height of the hero */
+  container-type: size;
+  /* lines fade in at the top and out at the bottom */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 14%,
+    #000 82%,
+    transparent 100%
+  );
+}
+
+.drop {
+  --c: 45, 224, 150;
+  position: absolute;
+  top: 0;
+  left: var(--x);
+  width: 1px;
+  height: var(--h);
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--c), 0),
+    rgba(var(--c), 0.9)
+  );
+  opacity: var(--o);
+  transform: translateY(-100%);
+  animation: fall var(--t) linear var(--d) infinite;
+  will-change: transform;
+}
+
+/* bright "head" of the event */
+.drop::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  bottom: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgb(var(--c));
+  box-shadow: 0 0 8px 1px rgba(var(--c), 0.8);
+}
+
+.blue {
+  --c: 91, 168, 232;
+}
+
+.tag {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: none;
+  padding: 3px 8px;
+  border: 1px solid rgba(158, 184, 204, 0.14);
+  border-radius: 4px;
+  color: rgba(158, 184, 204, 0.6);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  opacity: 0;
+  animation: tag 10s ease-in-out var(--d) infinite;
+}
+
+@media (min-width: 993px) {
+  .tag {
+    display: block;
+  }
+}
+
+/* fewer lines on small screens */
+@media (max-width: 700px) {
+  .drop:nth-child(n + 9) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drop,
+  .tag {
+    animation: none;
+  }
+
+  .drop {
+    display: none;
+  }
+
+  .tag {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(calc(100cqh + 100%));
+  }
+}
+
+@keyframes tag {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  15%,
+  70% {
+    opacity: 1;
+    transform: none;
+  }
+  85% {
+    opacity: 0;
+  }
+}

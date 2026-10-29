@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./hero.module.css";
+import HeroBackdrop from "./hero-backdrop";
+import HeroBlueprint from "./hero-blueprint";
 
 const WORDS = ["sell", "scale", "grow", "convert"];
 const TECH = ["React", "Next.js", "Shopify", "API integrations", "SI automation"];
@@ -23,6 +25,8 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
+      <HeroBlueprint />
+      <HeroBackdrop />
       <div className={styles.inner}>
         <div className={styles.copy}>
           <span className={styles.eyebrow}>e-commerce development</span>

@@ -1,0 +1,301 @@
+.blueprint {
+  --line: 158, 184, 204;
+  --dim: rgba(var(--line), 0.3);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ---- grid: 32px minor / 160px major, visible mostly around the window ---- */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--line), 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--line), 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(var(--line), 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--line), 0.035) 1px, transparent 1px);
+  background-size:
+    160px 160px,
+    160px 160px,
+    32px 32px,
+    32px 32px;
+  mask-image: radial-gradient(
+    ellipse 75% 70% at 70% 50%,
+    #000 0%,
+    transparent 100%
+  );
+}
+
+/* ---- rulers along the top and left edges ---- */
+.ruler {
+  position: absolute;
+  display: none;
+}
+
+.rulerTop {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background:
+    repeating-linear-gradient(
+        90deg,
+        rgba(var(--line), 0.3) 0 1px,
+        transparent 1px 100px
+      )
+      left top / 100% 12px no-repeat,
+    repeating-linear-gradient(
+        90deg,
+        rgba(var(--line), 0.26) 0 1px,
+        transparent 1px 20px
+      )
+      left top / 100% 6px no-repeat,
+    repeating-linear-gradient(
+        90deg,
+        rgba(var(--line), 0.14) 0 1px,
+        transparent 1px 4px
+      )
+      left top / 100% 3px no-repeat;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.rulerLeft {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 12px;
+  background:
+    repeating-linear-gradient(
+        180deg,
+        rgba(var(--line), 0.3) 0 1px,
+        transparent 1px 100px
+      )
+      left top / 12px 100% no-repeat,
+    repeating-linear-gradient(
+        180deg,
+        rgba(var(--line), 0.26) 0 1px,
+        transparent 1px 20px
+      )
+      left top / 6px 100% no-repeat,
+    repeating-linear-gradient(
+        180deg,
+        rgba(var(--line), 0.14) 0 1px,
+        transparent 1px 4px
+      )
+      left top / 3px 100% no-repeat;
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+/* ---- crop marks in the corners ---- */
+.mark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid rgba(var(--line), 0.35);
+}
+
+.tl {
+  top: 20px;
+  left: 20px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.tr {
+  top: 20px;
+  right: 20px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.bl {
+  bottom: 20px;
+  left: 20px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.br {
+  bottom: 20px;
+  right: 20px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* ---- desktop-only: ghost layout + dimension lines + title block ---- */
+.frame,
+.titleBlock {
+  display: none;
+}
+
+.frameGrid {
+  width: 100%;
+  max-width: 1240px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.target {
+  grid-column: 2;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+/* horizontal dimension line above the window, label in the gap */
+.dimTop {
+  position: absolute;
+  top: -26px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--dim) 0 calc(50% - 88px),
+    transparent calc(50% - 88px) calc(50% + 88px),
+    var(--dim) calc(50% + 88px) 100%
+  );
+}
+
+.dimTop::before,
+.dimTop::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--dim);
+}
+
+.dimTop::before {
+  left: 0;
+}
+
+.dimTop::after {
+  right: 0;
+}
+
+/* vertical dimension line left of the window */
+.dimLeft {
+  position: absolute;
+  left: -26px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    var(--dim) 0 calc(50% - 36px),
+    transparent calc(50% - 36px) calc(50% + 36px),
+    var(--dim) calc(50% + 36px) 100%
+  );
+}
+
+.dimLeft::before,
+.dimLeft::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  width: 9px;
+  height: 1px;
+  background: var(--dim);
+}
+
+.dimLeft::before {
+  top: 0;
+}
+
+.dimLeft::after {
+  bottom: 0;
+}
+
+.dimTop b,
+.dimLeft b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(var(--line), 0.55);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.dimLeft b {
+  writing-mode: vertical-rl;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* title block, bottom-left like on a technical drawing */
+.titleBlock {
+  position: absolute;
+  left: 48px;
+  bottom: 36px;
+  grid-template-columns: auto auto;
+  border: 1px solid rgba(var(--line), 0.18);
+  color: rgba(var(--line), 0.5);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.titleBlock span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-bottom: 1px solid rgba(var(--line), 0.12);
+}
+
+.titleBlock span:nth-child(odd) {
+  border-right: 1px solid rgba(var(--line), 0.12);
+}
+
+.titleBlock span:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.titleBlock i {
+  width: 5px;
+  height: 5px;
+  background: #2de096;
+}
+
+@media (min-width: 993px) {
+  .ruler {
+    display: block;
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 30px;
+  }
+
+  .titleBlock {
+    display: grid;
+  }
+}
