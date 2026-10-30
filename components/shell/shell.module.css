@@ -1,0 +1,29 @@
+.shell {
+  position: relative;
+  flex: 1;
+}
+
+/* the original hero background, now shared by every page */
+.base {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 50% 70% at 88% 42%,
+      rgba(var(--blue-rgb), 0.12),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 36% 46% at 72% 88%,
+      rgba(var(--accent-rgb), 0.06),
+      transparent 60%
+    ),
+    var(--background);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}

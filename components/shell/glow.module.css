@@ -1,0 +1,111 @@
+.glow {
+  --g: var(--accent-rgb);
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---- off: plain dark background ---- */
+.off {
+  background: none;
+}
+
+/* ---- spot: compact glow behind the text block ---- */
+.spot {
+  background: radial-gradient(
+    ellipse 52% 62% at 24% 54%,
+    rgba(var(--g), 0.17),
+    rgba(var(--g), 0.05) 55%,
+    transparent 78%
+  );
+}
+
+/* ---- terminal: big centre glow + dark vignette (lit-screen look) ---- */
+.terminal {
+  background:
+    radial-gradient(
+      ellipse 85% 85% at 50% 50%,
+      transparent 45%,
+      rgba(5, 9, 12, 0.72) 100%
+    ),
+    radial-gradient(
+      ellipse 70% 75% at 46% 50%,
+      rgba(var(--g), 0.2),
+      rgba(var(--g), 0.07) 55%,
+      transparent 80%
+    );
+}
+
+/* ---- wash: wide, low saturation, greenish-teal with a cool right side ---- */
+.wash {
+  background:
+    radial-gradient(
+      ellipse 100% 90% at 35% 50%,
+      rgba(60, 200, 160, 0.11),
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 60% 70% at 92% 40%,
+      rgba(var(--blue-rgb), 0.1),
+      transparent 70%
+    );
+}
+
+/* ---- crt: terminal + faint static scanlines ---- */
+.crt {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.14) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(
+      ellipse 85% 85% at 50% 50%,
+      transparent 40%,
+      rgba(5, 9, 12, 0.78) 100%
+    ),
+    radial-gradient(
+      ellipse 70% 75% at 46% 50%,
+      rgba(var(--g), 0.22),
+      rgba(var(--g), 0.08) 55%,
+      transparent 80%
+    );
+}
+
+/* ---- dev-only variant switcher (above the page so it stays clickable) ---- */
+.switcher {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  z-index: 50;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(var(--line-rgb), 0.2);
+  border-radius: 6px;
+  background: rgba(13, 21, 32, 0.85);
+  transform: translateX(-50%);
+}
+
+.switcher button {
+  padding: 3px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(var(--line-rgb), 0.7);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.switcher button:hover {
+  color: var(--foreground);
+}
+
+.switcher button.active {
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent);
+}

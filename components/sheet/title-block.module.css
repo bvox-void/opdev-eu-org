@@ -1,0 +1,41 @@
+.block {
+  position: absolute;
+  left: 48px;
+  bottom: 36px;
+  display: none;
+  grid-template-columns: auto auto;
+  border: 1px solid rgba(var(--line-rgb), 0.18);
+  color: rgba(var(--line-rgb), 0.5);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.block span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-bottom: 1px solid rgba(var(--line-rgb), 0.12);
+}
+
+.block span:nth-child(odd) {
+  border-right: 1px solid rgba(var(--line-rgb), 0.12);
+}
+
+.block span:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.block i {
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+}
+
+@media (min-width: 993px) {
+  .block {
+    display: grid;
+  }
+}

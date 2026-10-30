@@ -1,10 +1,10 @@
 .backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  /* lets keyframes use 100cqh = height of the hero */
+  /* lets keyframes use 100cqh = height of the viewport */
   container-type: size;
   /* lines fade in at the top and out at the bottom */
   mask-image: linear-gradient(
@@ -17,7 +17,7 @@
 }
 
 .drop {
-  --c: 45, 224, 150;
+  --c: var(--accent-rgb);
   position: absolute;
   top: 0;
   left: var(--x);
@@ -48,7 +48,7 @@
 }
 
 .blue {
-  --c: 91, 168, 232;
+  --c: var(--blue-rgb);
 }
 
 .tag {
@@ -57,9 +57,9 @@
   top: var(--y);
   display: none;
   padding: 3px 8px;
-  border: 1px solid rgba(158, 184, 204, 0.14);
+  border: 1px solid rgba(var(--line-rgb), 0.14);
   border-radius: 4px;
-  color: rgba(158, 184, 204, 0.6);
+  color: rgba(var(--line-rgb), 0.6);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.68rem;
   letter-spacing: 0.3px;
@@ -74,9 +74,9 @@
   }
 }
 
-/* fewer lines on small screens */
-@media (max-width: 700px) {
-  .drop:nth-child(n + 9) {
+/* no falling lines on mobile / tablet (same breakpoint as the layout) */
+@media (max-width: 992px) {
+  .drop {
     display: none;
   }
 }

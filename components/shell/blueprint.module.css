@@ -1,0 +1,143 @@
+.blueprint {
+  --line: var(--line-rgb);
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ---- grid: 32px minor / 160px major, visible mostly around the right side ---- */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--line), 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--line), 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(var(--line), 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--line), 0.035) 1px, transparent 1px);
+  background-size:
+    160px 160px,
+    160px 160px,
+    32px 32px,
+    32px 32px;
+  mask-image: radial-gradient(
+    ellipse 75% 70% at 70% 50%,
+    #000 0%,
+    transparent 100%
+  );
+}
+
+/* ---- rulers along the top and left edges (desktop only) ---- */
+.ruler {
+  position: absolute;
+  display: none;
+}
+
+.rulerTop {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background:
+    repeating-linear-gradient(
+        90deg,
+        rgba(var(--line), 0.3) 0 1px,
+        transparent 1px 100px
+      )
+      left top / 100% 12px no-repeat,
+    repeating-linear-gradient(
+        90deg,
+        rgba(var(--line), 0.26) 0 1px,
+        transparent 1px 20px
+      )
+      left top / 100% 6px no-repeat,
+    repeating-linear-gradient(
+        90deg,
+        rgba(var(--line), 0.14) 0 1px,
+        transparent 1px 4px
+      )
+      left top / 100% 3px no-repeat;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.rulerLeft {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 12px;
+  background:
+    repeating-linear-gradient(
+        180deg,
+        rgba(var(--line), 0.3) 0 1px,
+        transparent 1px 100px
+      )
+      left top / 12px 100% no-repeat,
+    repeating-linear-gradient(
+        180deg,
+        rgba(var(--line), 0.26) 0 1px,
+        transparent 1px 20px
+      )
+      left top / 6px 100% no-repeat,
+    repeating-linear-gradient(
+        180deg,
+        rgba(var(--line), 0.14) 0 1px,
+        transparent 1px 4px
+      )
+      left top / 3px 100% no-repeat;
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+@media (min-width: 993px) {
+  .ruler {
+    display: block;
+  }
+}
+
+/* ---- crop marks in the corners ---- */
+.mark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid rgba(var(--line), 0.35);
+}
+
+.tl {
+  top: 20px;
+  left: 20px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.tr {
+  top: 20px;
+  right: 20px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.bl {
+  bottom: 20px;
+  left: 20px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.br {
+  bottom: 20px;
+  right: 20px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}

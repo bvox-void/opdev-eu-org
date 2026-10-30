@@ -2,8 +2,21 @@
 
 :root {
   color-scheme: dark;
+
+  /* base */
   --background: #101820;
   --foreground: #e0f2fe;
+  --muted: #9eb8cc;
+
+  /* accent: phosphor green. The -rgb twin is for rgba(var(--accent-rgb), a) */
+  --accent: #2de096;
+  --accent-rgb: 45, 224, 150;
+
+  /* secondary: cool blue */
+  --blue-rgb: 91, 168, 232;
+
+  /* drawing lines: grid, rulers, marks, dimension lines */
+  --line-rgb: 158, 184, 204;
 }
 
 @theme inline {

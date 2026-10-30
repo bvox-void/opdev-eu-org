@@ -1,11 +1,15 @@
-import styles from "./hero-backdrop.module.css";
+import styles from "./backdrop.module.css";
 
 /**
- * "Event stream" backdrop for the hero: thin lines fall through the section,
- * each one a store event (order, payment, webhook) on its way to the storefront.
+ * Event layer: log-style tags that fade in and out in the corners, and
+ * (optionally) thin lines falling through the screen, each one a store event
+ * on its way to the storefront.
  *
- * Positions are derived from a seeded integer PRNG, so the markup is identical
- * on every render (no hydration mismatch, no Math.random).
+ * The falling lines are OFF by default (`lines` prop). Turn them on with
+ * <Backdrop lines /> in shell.tsx. They are never shown below 993px.
+ *
+ * Positions come from a seeded integer PRNG, so the markup is identical on
+ * every render (no hydration mismatch, no Math.random).
  */
 
 const DROPS = 16;
@@ -43,24 +47,25 @@ const drops = Array.from({ length: DROPS }, (_, i) => {
   };
 });
 
-export default function HeroBackdrop() {
+export default function Backdrop({ lines = false }: { lines?: boolean }) {
   return (
     <div className={styles.backdrop} aria-hidden="true">
-      {drops.map((d) => (
-        <span
-          key={d.id}
-          className={`${styles.drop} ${d.blue ? styles.blue : ""}`}
-          style={
-            {
-              "--x": d.x,
-              "--h": `${d.height}px`,
-              "--t": d.duration,
-              "--d": d.delay,
-              "--o": d.opacity,
-            } as React.CSSProperties
-          }
-        />
-      ))}
+      {lines &&
+        drops.map((d) => (
+          <span
+            key={d.id}
+            className={`${styles.drop} ${d.blue ? styles.blue : ""}`}
+            style={
+              {
+                "--x": d.x,
+                "--h": `${d.height}px`,
+                "--t": d.duration,
+                "--d": d.delay,
+                "--o": d.opacity,
+              } as React.CSSProperties
+            }
+          />
+        ))}
 
       {EVENTS.map((e) => (
         <span
