@@ -74,6 +74,16 @@
   }
 }
 
+/* Keep every tag above the dimension line of the hero window. The window is
+   vertically centred and ~428px tall, so its top edge sits at about
+   50svh - 110px; tags stop 166px higher than that, but never closer than
+   84px to the top (the NavBar ends at 72px). */
+@media (min-width: 993px) {
+  .tag {
+    top: max(84px, min(var(--y), calc(50svh - 276px)));
+  }
+}
+
 /* no falling lines on mobile / tablet (same breakpoint as the layout) */
 @media (max-width: 992px) {
   .drop {

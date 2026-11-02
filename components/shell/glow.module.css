@@ -76,8 +76,8 @@
 /* ---- dev-only variant switcher (above the page so it stays clickable) ---- */
 .switcher {
   position: fixed;
-  left: 50%;
-  bottom: 14px;
+  right: 12px;
+  bottom: 12px;
   z-index: 50;
   display: flex;
   gap: 4px;
@@ -85,7 +85,19 @@
   border: 1px solid rgba(var(--line-rgb), 0.2);
   border-radius: 6px;
   background: rgba(13, 21, 32, 0.85);
-  transform: translateX(-50%);
+}
+
+/* mobile: step aside while the menu drawer is open */
+:global(body):has(:global(#sidebar[aria-hidden="false"])) .switcher {
+  display: none;
+}
+
+/* desktop: sit above the fixed footer strip, bottom-right */
+@media (min-width: 993px) {
+  .switcher {
+    right: 48px;
+    bottom: 68px;
+  }
 }
 
 .switcher button {

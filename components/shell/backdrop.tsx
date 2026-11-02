@@ -15,11 +15,13 @@ import styles from "./backdrop.module.css";
 const DROPS = 16;
 
 const EVENTS = [
-  { label: "order.created", x: "4%", y: "16%", delay: "0s" },
-  { label: "payment.captured", x: "47%", y: "7%", delay: "-3s" },
-  { label: "stock.sync", x: "5%", y: "84%", delay: "-6s" },
-  { label: "webhook 200", x: "90%", y: "11%", delay: "-2s" },
-  { label: "shopify → erp", x: "88%", y: "88%", delay: "-5s" },
+  // All tags live in the TOP band (y <= ~20%), under the NavBar. The bottom
+  // of the screen belongs to the title block, footer and dev switcher.
+  { label: "order.created", x: "4%", y: "20%", delay: "0s" },
+  { label: "stock.sync", x: "21%", y: "12%", delay: "-6s" },
+  { label: "payment.captured", x: "47%", y: "17%", delay: "-3s" },
+  { label: "shopify → erp", x: "68%", y: "12%", delay: "-5s" },
+  { label: "webhook 200", x: "88%", y: "20%", delay: "-2s" },
 ];
 
 function mulberry32(seed: number) {

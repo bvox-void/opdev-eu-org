@@ -90,7 +90,7 @@ export default function Hero() {
       </div>
 
       <BrowserWindow
-        url="northline.shop"
+        url="demo.shop"
         dimTop="storefront · Next.js"
         dimLeft="16 : 10"
       />
