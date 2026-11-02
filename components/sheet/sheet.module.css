@@ -1,3 +1,7 @@
+/*
+ * Room for the fixed chrome: NavBar on top (56px on mobile, ~72px on desktop)
+ * and the Footer strip at the bottom (desktop only; on mobile it is in flow).
+ */
 .sheet {
   position: relative;
   min-height: 100svh;
@@ -5,13 +9,13 @@
   align-items: center;
   justify-content: center;
   padding:
-    max(32px, env(safe-area-inset-top))
+    calc(76px + env(safe-area-inset-top))
     20px
     max(40px, env(safe-area-inset-bottom));
 }
 
 @media (min-width: 993px) {
   .sheet {
-    padding: 72px 30px;
+    padding: 104px 30px 88px;
   }
 }

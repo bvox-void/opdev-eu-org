@@ -1,0 +1,118 @@
+/* ---------- mobile: ordinary block at the end of the page ---------- */
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:
+    20px
+    20px
+    max(24px, env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(var(--line-rgb), 0.12);
+  color: rgba(var(--line-rgb), 0.5);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pager {
+  display: none;
+}
+
+.contacts {
+  display: flex;
+  gap: 8px;
+}
+
+/* same look as the contact buttons in the hero, slightly smaller */
+.contacts a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(13, 21, 32, 0.6);
+  color: #c9dceb;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contacts a:hover {
+  border-color: rgba(var(--blue-rgb), 0.4);
+  background: rgba(var(--blue-rgb), 0.1);
+  color: var(--foreground);
+}
+
+.contacts svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- desktop: fixed strip down to the bottom edge, pager in the
+   middle. Everything is centred vertically inside the strip. ---------- */
+@media (min-width: 993px) {
+  .footer {
+    position: fixed;
+    left: 48px;
+    right: 48px;
+    bottom: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 56px;
+    padding: 0;
+    border-top: 1px solid rgba(var(--line-rgb), 0.15);
+  }
+
+  .contacts {
+    justify-self: end;
+  }
+
+  .pager {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .count {
+    min-width: 64px;
+    text-align: center;
+    letter-spacing: 0.14em;
+  }
+
+  .count b {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 28px;
+    border: 1px solid rgba(var(--line-rgb), 0.2);
+    border-radius: 4px;
+    color: rgba(var(--line-rgb), 0.75);
+    font-size: 0.8rem;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  a.step:hover {
+    border-color: rgba(var(--accent-rgb), 0.45);
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--accent);
+  }
+
+  .step[data-off] {
+    opacity: 0.25;
+  }
+}
