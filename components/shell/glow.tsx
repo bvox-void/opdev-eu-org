@@ -20,7 +20,7 @@ import styles from "./glow.module.css";
 
 type Variant = "off" | "spot" | "terminal" | "wash" | "crt";
 
-const DEFAULT_VARIANT: Variant = "terminal";
+const DEFAULT_VARIANT: Variant = "wash";
 const VARIANTS: Variant[] = ["off", "spot", "terminal", "wash", "crt"];
 
 export default function Glow() {

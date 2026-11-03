@@ -3,14 +3,12 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MailIcon, TelegramIcon, XIcon } from "@/components/ui/icons";
 import { SHEETS } from "@/lib/nav";
-import { CONTACTS } from "@/lib/site";
 import styles from "./sidebar.module.css";
 
 /**
  * Mobile menu drawer, opened by the burger in <NavBar>. On desktop it is
- * never shown (the NavBar has the links). Lists ALL sheets, cover included.
+ * never shown (the NavBar has the links). Lists ALL sheets, Home included.
  */
 export default function Sidebar({
   open,
@@ -89,28 +87,6 @@ export default function Sidebar({
             ))}
           </ul>
         </nav>
-
-        <div className={styles.contacts}>
-          <a
-            href={CONTACTS.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contact via Telegram"
-          >
-            <TelegramIcon />
-          </a>
-          <a
-            href={CONTACTS.x}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contact via X"
-          >
-            <XIcon />
-          </a>
-          <a href={`mailto:${CONTACTS.email}`} aria-label="Contact via Email">
-            <MailIcon />
-          </a>
-        </div>
       </aside>
     </div>
   );

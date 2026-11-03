@@ -3,7 +3,7 @@ import Sheet from "@/components/sheet/sheet";
 
 export default function Home() {
   return (
-    <Sheet number="01" title="hero">
+    <Sheet number="01" title="Home">
       <Hero />
     </Sheet>
   );

@@ -16,7 +16,7 @@ export type SheetInfo = {
 };
 
 export const SHEETS: readonly SheetInfo[] = [
-  { number: "01", title: "hero", label: "Home", href: "/" },
+  { number: "01", title: "home", label: "Home", href: "/" },
   { number: "02", title: "services", label: "Services", href: "/services" },
   { number: "03", title: "cases", label: "Cases", href: "/cases" },
   { number: "04", title: "stack", label: "Stack", href: "/stack" },

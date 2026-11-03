@@ -25,13 +25,13 @@
   gap: 8px;
 }
 
-/* same look as the contact buttons in the hero, slightly smaller */
+/* same look as the contact buttons in the hero, smaller (32px) */
 .contacts a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   background: rgba(13, 21, 32, 0.6);
@@ -49,8 +49,8 @@
 }
 
 .contacts svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 /* ---------- desktop: fixed strip down to the bottom edge, pager in the
