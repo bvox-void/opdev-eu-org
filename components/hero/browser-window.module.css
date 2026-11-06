@@ -5,16 +5,26 @@
   max-width: 560px;
 }
 
+/*
+ * Window palette is derived from the page tokens (globals.css):
+ * page background #101820, so the chrome is a step darker and the
+ * viewport a step lighter; borders use the blueprint line colour.
+ */
 .browser {
+  --win-chrome: #0c131a;
+  --win-viewport: #131d27;
+  --win-border: rgba(var(--line-rgb), 0.18);
+
   display: flex;
   flex-direction: column;
   aspect-ratio: 16 / 10;
-  border: 1px solid rgba(224, 242, 254, 0.1);
+  border: 1px solid var(--win-border);
   border-radius: 16px;
-  background: #17212c;
+  background: var(--win-viewport);
   box-shadow:
-    inset 0 1px 0 rgba(224, 242, 254, 0.08),
-    0 24px 60px -28px rgba(0, 0, 0, 0.65);
+    inset 0 1px 0 rgba(var(--line-rgb), 0.1),
+    0 24px 60px -28px rgba(0, 0, 0, 0.7),
+    0 0 80px -30px rgba(var(--blue-rgb), 0.25);
   overflow: hidden;
 }
 
@@ -25,29 +35,41 @@
   gap: 10px;
   flex: none;
   padding: 12px 14px;
-  border-bottom: 1px solid rgba(224, 242, 254, 0.08);
-  background: #121a23;
+  border-bottom: 1px solid var(--win-border);
+  background: var(--win-chrome);
 }
 
 .dots {
   display: flex;
-  gap: 5px;
+  gap: 6px;
 }
 
 .dots i {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(224, 242, 254, 0.22);
+}
+
+.dots i:nth-child(1) {
+  background: #ff5f57;
+}
+
+.dots i:nth-child(2) {
+  background: #febc2e;
+}
+
+.dots i:nth-child(3) {
+  background: #28c840;
 }
 
 .url {
   justify-self: center;
   max-width: 100%;
-  padding: 3px 10px;
+  padding: 3px 12px;
+  border: 1px solid rgba(var(--line-rgb), 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #8ea6b8;
+  background: rgba(var(--line-rgb), 0.06);
+  color: var(--muted);
   font-size: 0.72rem;
   letter-spacing: 0.2px;
 }
@@ -74,13 +96,7 @@
 
 .viewport {
   flex: 1;
-  background:
-    radial-gradient(
-      ellipse 70% 80% at 70% 40%,
-      rgba(var(--blue-rgb), 0.08),
-      transparent 70%
-    ),
-    #141c26;
+  background: var(--win-viewport);
 }
 
 /* ---- dimension lines (desktop only), drawn outside the window ---- */
