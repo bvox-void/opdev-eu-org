@@ -141,3 +141,11 @@
   border-bottom-width: 1px;
   border-right-width: 1px;
 }
+
+/* drawing frame (rulers + marks): above the bars' scrims on desktop only;
+   on mobile the NavBar is a solid bar and must stay on top of the marks */
+@media (min-width: 993px) {
+  .frame {
+    z-index: 20;
+  }
+}

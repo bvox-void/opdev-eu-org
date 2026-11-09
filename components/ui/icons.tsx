@@ -45,3 +45,88 @@ export function MailIcon() {
     </svg>
   );
 }
+
+/* ---- service icons: 24px, 1.6 stroke, inherit currentColor ---- */
+
+function Stroke({ children }: { children: React.ReactNode }) {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+}
+
+export function CartIcon() {
+  return (
+    <Stroke>
+      <circle cx="9" cy="20" r="1.4" />
+      <circle cx="18" cy="20" r="1.4" />
+      <path d="M2.5 3.5h3L8 14.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.75L21 7H6.2" />
+    </Stroke>
+  );
+}
+
+export function CodeIcon() {
+  return (
+    <Stroke>
+      <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+    </Stroke>
+  );
+}
+
+export function CardIcon() {
+  return (
+    <Stroke>
+      <rect x="2.5" y="5" width="19" height="14" rx="2" />
+      <path d="M2.5 10h19M6 15h4" />
+    </Stroke>
+  );
+}
+
+export function PlugIcon() {
+  return (
+    <Stroke>
+      <circle cx="6" cy="6" r="2.5" />
+      <circle cx="18" cy="18" r="2.5" />
+      <path d="M8.5 6H14a3 3 0 0 1 3 3v6.5M6 8.5V12a3 3 0 0 0 3 3h6.5" />
+    </Stroke>
+  );
+}
+
+export function BotIcon() {
+  return (
+    <Stroke>
+      <rect x="4" y="8" width="16" height="12" rx="3" />
+      <path d="M12 4v4M9 13v1.5M15 13v1.5M2 13v3M22 13v3" />
+    </Stroke>
+  );
+}
+
+export function DocIcon() {
+  return (
+    <Stroke>
+      <path d="M5 3.5h9l5 5V20.5H5z" />
+      <path d="M14 3.5v5h5M8.5 13h7M8.5 16.5h5" />
+    </Stroke>
+  );
+}
+
+export function GaugeIcon() {
+  return (
+    <Stroke>
+      <path d="M3.5 17a9 9 0 1 1 17 0" />
+      <path d="m12 14 4-5" />
+      <circle cx="12" cy="14" r="1.2" />
+    </Stroke>
+  );
+}

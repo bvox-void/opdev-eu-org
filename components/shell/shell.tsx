@@ -1,4 +1,3 @@
-import Backdrop from "./backdrop";
 import Blueprint from "./blueprint";
 import Glow from "./glow";
 import styles from "./shell.module.css";
@@ -9,9 +8,8 @@ import styles from "./shell.module.css";
  *
  * Layers, bottom to top (each one is position: fixed, full viewport):
  *   base      - dark background with two soft colour spots
- *   Glow      - phosphor light + vignette (5 variants, dev switcher inside)
+ *   Glow      - soft green-teal wash
  *   Blueprint - grid, rulers, crop marks (static)
- *   Backdrop  - event tags, falling lines (lines are OFF by default)
  *   content   - the page (a <Sheet>)
  */
 export default function Shell({ children }: { children: React.ReactNode }) {
@@ -20,7 +18,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <div className={styles.base} aria-hidden="true" />
       <Glow />
       <Blueprint />
-      <Backdrop lines={false} />
       <div className={styles.content}>{children}</div>
     </div>
   );

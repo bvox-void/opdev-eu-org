@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/footer/footer";
 import NavBar from "@/components/navbar/navbar";
 import Shell from "@/components/shell/shell";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Opdev | E-commerce development",
   description:
     "Custom stores on React, Next.js and Shopify - from storefront design to API integrations and SI automation.",

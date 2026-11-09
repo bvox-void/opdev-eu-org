@@ -70,6 +70,21 @@
     border-top: 1px solid rgba(var(--line-rgb), 0.15);
   }
 
+  /* solid strip: content scrolling down stops at a clean edge (the
+     border above) instead of running through the pager and contacts */
+  .footer::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -48px;
+    right: -48px;
+    top: 0;
+    bottom: 0;
+    background: rgba(16, 24, 32, 0.92);
+    backdrop-filter: blur(8px);
+    pointer-events: none;
+  }
+
   .contacts {
     justify-self: end;
   }

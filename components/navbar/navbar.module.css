@@ -88,6 +88,25 @@
     pointer-events: auto;
   }
 
+  /* scrim: page content that scrolls up fades out under the bar instead of
+     running through the logo / menu */
+  .bar::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -28px;
+    left: -48px;
+    right: -48px;
+    height: 116px;
+    background: linear-gradient(
+      to bottom,
+      rgba(16, 24, 32, 0.985) 0,
+      rgba(16, 24, 32, 0.985) 72px,
+      rgba(16, 24, 32, 0) 100%
+    );
+    pointer-events: none;
+  }
+
   /* a grid item stretches over its whole column by default, which made the
      link clickable far to the left of the visible logo */
   .logo {
@@ -98,7 +117,7 @@
     display: none;
   }
 
-  /* same visual language as the glow switcher, just wider */
+  /* menu pill: thin line border on a dark translucent background */
   .nav {
     display: flex;
     gap: 4px;

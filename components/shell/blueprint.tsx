@@ -10,16 +10,22 @@ import styles from "./blueprint.module.css";
  */
 export default function Blueprint() {
   return (
-    <div className={styles.blueprint} aria-hidden="true">
-      <div className={styles.grid} />
+    <>
+      <div className={styles.blueprint} aria-hidden="true">
+        <div className={styles.grid} />
+      </div>
 
-      <div className={`${styles.ruler} ${styles.rulerTop}`} />
-      <div className={`${styles.ruler} ${styles.rulerLeft}`} />
+      {/* rulers + crop marks: on desktop this layer sits ABOVE the NavBar and
+          Footer scrims, so the drawing frame stays visible while pages scroll */}
+      <div className={`${styles.blueprint} ${styles.frame}`} aria-hidden="true">
+        <div className={`${styles.ruler} ${styles.rulerTop}`} />
+        <div className={`${styles.ruler} ${styles.rulerLeft}`} />
 
-      <i className={`${styles.mark} ${styles.tl}`} />
-      <i className={`${styles.mark} ${styles.tr}`} />
-      <i className={`${styles.mark} ${styles.bl}`} />
-      <i className={`${styles.mark} ${styles.br}`} />
-    </div>
+        <i className={`${styles.mark} ${styles.tl}`} />
+        <i className={`${styles.mark} ${styles.tr}`} />
+        <i className={`${styles.mark} ${styles.bl}`} />
+        <i className={`${styles.mark} ${styles.br}`} />
+      </div>
+    </>
   );
 }

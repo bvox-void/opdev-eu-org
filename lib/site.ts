@@ -8,3 +8,5 @@ export const CONTACTS = {
   x: "https://x.com/opdev_tech",
   email: "bvox.void@gmail.com",
 } as const;
+
+export const SITE_URL = "https://opdev.eu.org";

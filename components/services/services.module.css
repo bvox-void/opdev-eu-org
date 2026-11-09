@@ -1,0 +1,241 @@
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ---------- header ---------- */
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 46rem;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: clamp(1.9rem, 6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  text-wrap: balance; /* ignored by older browsers: harmless */
+}
+
+.title span {
+  color: var(--accent);
+}
+
+/* ---------- grid ---------- */
+.grid {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.item {
+  display: flex; /* card fills the grid cell height */
+  min-width: 0;
+  animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+.card {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+  border: 1px solid rgba(var(--line-rgb), 0.16);
+  border-radius: 14px;
+  background: rgba(13, 21, 32, 0.72);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--line-rgb), 0.22),
+    transparent
+  );
+}
+
+.card:hover {
+  border-color: rgba(var(--accent-rgb), 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.6);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  border-radius: 10px;
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.06);
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+/* drawing item number, top-right */
+.num {
+  align-self: flex-start;
+  color: rgba(var(--line-rgb), 0.45);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+}
+
+.text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.outcome {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(var(--line-rgb), 0.18);
+  color: var(--foreground);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.outcome span {
+  margin-right: 6px;
+  color: var(--accent);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: auto 0 0;
+  padding: 16px 0 0;
+  list-style: none;
+}
+
+.pill {
+  padding: 3px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #7f93a8;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ---------- tablet ---------- */
+@media (min-width: 601px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wide {
+    grid-column: span 2;
+  }
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 993px) {
+  .inner {
+    gap: 48px;
+    max-width: 1360px;
+    /* top: heading sits lower, clear of the NavBar.
+       bottom: keeps the last row clear of the title block (bottom-left) */
+    padding: 48px 0 72px;
+  }
+
+  .head {
+    max-width: none;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .text {
+    max-width: 80ch;
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 2.2vw, 2.5rem);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    animation: none;
+  }
+
+  .card,
+  .icon {
+    transition: none;
+  }
+}
