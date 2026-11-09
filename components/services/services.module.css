@@ -218,6 +218,15 @@
   }
 }
 
+/* wide screens: the title block (bottom-left, ~190px wide) is far from the
+   centred cards, so the extra bottom room that keeps cards clear of it is not
+   needed. Without it the whole sheet fits in one screen height. */
+@media (min-width: 1760px) {
+  .inner {
+    padding-bottom: 0;
+  }
+}
+
 @keyframes cardIn {
   from {
     opacity: 0;

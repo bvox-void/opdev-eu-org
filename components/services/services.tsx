@@ -4,8 +4,6 @@ import {
   CardIcon,
   CartIcon,
   CodeIcon,
-  DocIcon,
-  GaugeIcon,
   PlugIcon,
 } from "@/components/ui/icons";
 import styles from "./services.module.css";
@@ -16,8 +14,6 @@ const ICONS: Record<ServiceIconKey, () => React.JSX.Element> = {
   card: CardIcon,
   plug: PlugIcon,
   bot: BotIcon,
-  doc: DocIcon,
-  gauge: GaugeIcon,
 };
 
 /**

@@ -10,9 +10,7 @@ export type ServiceIconKey =
   | "code"
   | "card"
   | "plug"
-  | "bot"
-  | "doc"
-  | "gauge";
+  | "bot";
 
 export type Service = {
   id: string;
@@ -32,9 +30,9 @@ export const SERVICES: readonly Service[] = [
     icon: "cart",
     wide: true,
     title: "Custom online stores",
-    text: "Full-cycle e-commerce development: catalog, cart, checkout, payments and admin, built as one system instead of a pile of plugins. From the first screen to the first paid order, a single point of responsibility.",
-    outcome: "A live store that takes real orders.",
-    tags: ["Shopify", "Next.js", "Stripe"],
+    text: "Full-cycle e-commerce development: catalog, cart, checkout, payments and admin, built as one system instead of a pile of plugins. From the first screen to the first paid order, a single point of responsibility. Products and policies are published as clean semantic HTML with schema.org structured data, so search engines and AI assistants can read, cite and recommend the catalog.",
+    outcome: "A live store that takes real orders and that AI search can read.",
+    tags: ["Shopify", "Next.js", "Stripe", "Schema.org", "AI search"],
   },
   {
     id: "storefronts",
@@ -67,22 +65,5 @@ export const SERVICES: readonly Service[] = [
     text: "AI chatbots and automations for customer support, product questions and routine operations, connected to real store data.",
     outcome: "Support and operations that scale without extra headcount.",
     tags: ["AI", "Chatbots", "Automation"],
-  },
-  {
-    id: "ai-ready-catalog",
-    icon: "doc",
-    title: "Catalogs readable by AI agents",
-    text: "Products and policies published as clean semantic HTML, schema.org structured data and machine-readable files, so search engines and AI assistants can understand, cite and recommend the catalog.",
-    outcome: "A catalog that AI search and shopping agents can parse.",
-    tags: ["Schema.org", "SEO", "AI search"],
-  },
-  {
-    id: "performance",
-    icon: "gauge",
-    wide: true,
-    title: "Performance & Core Web Vitals",
-    text: "Speed is a sales feature: slow pages lose customers. Audit of loading speed and Core Web Vitals, fixes in code and infrastructure, and monitoring so the store stays fast as traffic and catalog grow.",
-    outcome: "Measurable gains in LCP, INP and CLS.",
-    tags: ["Vercel", "Core Web Vitals", "SEO"],
   },
 ];
