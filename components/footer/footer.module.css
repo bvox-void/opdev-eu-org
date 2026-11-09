@@ -80,8 +80,7 @@
     right: -48px;
     top: 0;
     bottom: 0;
-    background: rgba(16, 24, 32, 0.92);
-    backdrop-filter: blur(8px);
+    background: rgba(16, 24, 32, 0.96);
     pointer-events: none;
   }
 

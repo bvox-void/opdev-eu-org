@@ -5,6 +5,11 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  /* own compositor layer + isolated paint: the masked grid is rasterised once
+     instead of being repainted while the page scrolls over it */
+  contain: strict;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* ---- grid: 32px minor / 160px major, visible mostly around the right side ---- */

@@ -18,10 +18,9 @@ export type SheetInfo = {
 export const SHEETS: readonly SheetInfo[] = [
   { number: "01", title: "home", label: "Home", href: "/" },
   { number: "02", title: "services", label: "Services", href: "/services" },
-  { number: "03", title: "cases", label: "Cases", href: "/cases" },
-  { number: "04", title: "stack", label: "Stack", href: "/stack" },
-  { number: "05", title: "about", label: "About", href: "/about" },
-  { number: "06", title: "contact", label: "Contact", href: "/contact" },
+  { number: "03", title: "stack", label: "Stack", href: "/stack" },
+  { number: "04", title: "about", label: "About", href: "/about" },
+  { number: "05", title: "contact", label: "Contact", href: "/contact" },
 ];
 
 /** Sheets that get a link in the NavBar (everything except the cover). */

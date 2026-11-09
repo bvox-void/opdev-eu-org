@@ -11,8 +11,9 @@
   height: calc(56px + env(safe-area-inset-top));
   padding: env(safe-area-inset-top) 20px 0;
   border-bottom: 1px solid rgba(var(--line-rgb), 0.12);
-  background: rgba(16, 24, 32, 0.82);
-  backdrop-filter: blur(8px);
+  /* no backdrop-filter on mobile: blurring live scrolling content under a
+     fixed bar is one of the most expensive things a phone GPU can do */
+  background: rgba(16, 24, 32, 0.96);
 }
 
 .logo {
@@ -78,7 +79,6 @@
     padding: 0;
     border-bottom: 0;
     background: none;
-    backdrop-filter: none;
     pointer-events: none; /* empty areas of the bar stay click-through */
   }
 
