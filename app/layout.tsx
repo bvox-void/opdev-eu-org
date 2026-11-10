@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Opdev | E-commerce development",
   description:
-    "Custom stores on React, Next.js and Shopify - from storefront design to API integrations and SI automation.",
+  "Custom stores on React and Next.js - from storefront design to API integrations and AI automation.",
 };
 
 export const viewport: Viewport = {

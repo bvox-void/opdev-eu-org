@@ -188,12 +188,14 @@
 
 /* ---------- desktop ---------- */
 @media (min-width: 993px) {
+  /* A centred column (max 1200px) keeps the cards clear of the title block
+     (bottom-left, shown from 1700px). No extra padding here: <Sheet>
+     already reserves room for NavBar (top) and Footer (bottom), and centres
+     this block in what is left, so the content sits in the middle of the
+     screen instead of sinking to the bottom. */
   .inner {
-    gap: 48px;
-    max-width: 1360px;
-    /* top: heading sits lower, clear of the NavBar.
-       bottom: keeps the last row clear of the title block (bottom-left) */
-    padding: 48px 0 72px;
+    gap: 32px;
+    max-width: 1200px;
   }
 
   .head {
@@ -215,15 +217,6 @@
 
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* wide screens: the title block (bottom-left, ~190px wide) is far from the
-   centred cards, so the extra bottom room that keeps cards clear of it is not
-   needed. Without it the whole sheet fits in one screen height. */
-@media (min-width: 1760px) {
-  .inner {
-    padding-bottom: 0;
   }
 }
 

@@ -5,9 +5,8 @@ import { CONTACTS, SITE, SITE_URL } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 
 const DESCRIPTION =
-  "E-commerce development on React, Next.js and Shopify: custom stores, checkout and payments, integrations, AI automation and performance.";
-
-const TITLE = "Services | E-commerce development on React, Next.js & Shopify";
+  "E-commerce development on React and Next.js: custom stores, checkout and payments, integrations, AI automation and performance.";
+  const TITLE = "Services | E-commerce development on React & Next.js";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -31,7 +30,7 @@ const jsonLd = {
   description: DESCRIPTION,
   email: CONTACTS.email,
   sameAs: [CONTACTS.telegram, CONTACTS.x],
-  knowsAbout: ["E-commerce", "React", "Next.js", "Shopify", "Stripe", "AI automation"],
+  knowsAbout: ["E-commerce", "React", "Next.js", "MCP", "Shopify", "Stripe", "AI automation"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "E-commerce development services",

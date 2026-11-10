@@ -32,7 +32,7 @@ export const SERVICES: readonly Service[] = [
     title: "Custom online stores",
     text: "Full-cycle e-commerce development: catalog, cart, checkout, payments and admin, built as one system instead of a pile of plugins. From the first screen to the first paid order, a single point of responsibility. Products and policies are published as clean semantic HTML with schema.org structured data, so search engines and AI assistants can read, cite and recommend the catalog.",
     outcome: "A live store that takes real orders and that AI search can read.",
-    tags: ["Shopify", "Next.js", "Stripe", "Schema.org", "AI search"],
+    tags: ["Next.js", "Stripe", "Schema.org", "AI search", "MCP"],   // Custom online stores
   },
   {
     id: "storefronts",
@@ -56,7 +56,7 @@ export const SERVICES: readonly Service[] = [
     title: "Integrations & data sync",
     text: "Custom API connections between the store and the tools a business already runs: inventory, orders, shipping, CRM, accounting. Data flows automatically instead of being retyped.",
     outcome: "Less manual work, one source of truth.",
-    tags: ["API", "Webhooks", "Shopify"],
+    tags: ["API", "Webhooks", "MCP"], // Integrations & data sync
   },
   {
     id: "ai-automation",

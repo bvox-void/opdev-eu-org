@@ -34,7 +34,13 @@
   background: var(--accent);
 }
 
-@media (min-width: 993px) {
+/* Shown only when the viewport is wide enough that it cannot touch the
+   centred content column (max 1200px): (1700 - 1200) / 2 = 250px of free
+   side room vs ~225px taken by the block. Narrower (e.g. a laptop at 120%
+   zoom is ~1600px): hidden, it is purely decorative (aria-hidden).
+   This is the ONLY rule that shows it - there must be no other
+   `display: grid` for .block in a media query. */
+@media (min-width: 1700px) {
   .block {
     display: grid;
   }

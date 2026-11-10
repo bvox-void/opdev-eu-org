@@ -13,7 +13,7 @@ import BrowserWindow from "./browser-window";
 import styles from "./hero.module.css";
 
 const WORDS = ["sell", "scale", "grow", "convert"];
-const TECH = ["React", "Next.js", "Shopify", "API integrations", "AI automation"];
+const TECH = ["React", "Next.js", "MCP", "API integrations", "AI automation"];
 
 /** Content of sheet 01. The page frame (padding, title block) is <Sheet>. */
 export default function Hero() {
@@ -41,8 +41,8 @@ export default function Hero() {
         </h1>
 
         <p className={styles.text}>
-          Full-cycle development on React, Next.js & Shopify - from storefront
-          design to API integrations and AI automation.
+        Full-cycle development on React & Next.js - from storefront
+        design to API integrations and AI automation.
         </p>
 
         <div className={styles.tech}>
