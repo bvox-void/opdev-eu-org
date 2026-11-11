@@ -1,0 +1,596 @@
+.inner {
+  width: 100%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ---------- header ---------- */
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 4px 12px;
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 20px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.title {
+  margin: 0 0 12px;
+  color: var(--foreground);
+  font-size: clamp(1.9rem, 6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+}
+
+.title span {
+  color: var(--accent);
+}
+
+.lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ---------- layout ---------- */
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+
+.card,
+.spec,
+.next {
+  position: relative;
+  border: 1px solid rgba(var(--line-rgb), 0.16);
+  border-radius: 14px;
+  background: rgba(13, 21, 32, 0.72);
+}
+
+.card::before,
+.spec::before,
+.next::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--line-rgb), 0.22),
+    transparent
+  );
+}
+
+.card {
+  padding: 24px 22px;
+  animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (min-width: 600px) {
+  .card {
+    padding: 30px 32px;
+  }
+}
+
+/* ---------- stepper ---------- */
+.stepLabel {
+  margin: 0 0 10px;
+  color: rgba(var(--line-rgb), 0.6);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.bar {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 24px;
+}
+
+.bar i {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(var(--line-rgb), 0.16);
+  transition: background 0.3s ease;
+}
+
+.bar i[data-on] {
+  background: var(--accent);
+}
+
+.stepTitle {
+  margin: 0 0 20px;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  outline: none;
+}
+
+.panel {
+  animation: rise 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---------- fields ---------- */
+.fieldset {
+  min-width: 0;
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+}
+
+.legend,
+.label {
+  display: block;
+  margin: 0 0 8px;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.label em {
+  color: rgba(var(--line-rgb), 0.5);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.input,
+.textarea {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 13px 16px;
+  border: 1px solid rgba(var(--line-rgb), 0.2);
+  border-radius: 10px;
+  background: rgba(16, 24, 32, 0.9);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 1rem; /* 16px: stops iOS zooming into the field */
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(var(--line-rgb), 0.45);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: rgba(var(--accent-rgb), 0.6);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+}
+
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- step 1: need cards (native checkboxes) ---------- */
+.needs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 520px) {
+  .needs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.need {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(var(--line-rgb), 0.16);
+  border-radius: 12px;
+  background: rgba(16, 24, 32, 0.7);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.need:hover {
+  border-color: rgba(var(--accent-rgb), 0.4);
+  transform: translateY(-2px);
+}
+
+.need input,
+.pill input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.need:has(input:checked) {
+  border-color: rgba(var(--accent-rgb), 0.55);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.need:has(input:focus-visible),
+.pill:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.needIcon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(var(--line-rgb), 0.2);
+  border-radius: 10px;
+  color: var(--muted);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.need:has(input:checked) .needIcon {
+  border-color: rgba(var(--accent-rgb), 0.35);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+}
+
+.needText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.needText b {
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.needText small {
+  color: rgba(var(--line-rgb), 0.6);
+  font-size: 0.74rem;
+  line-height: 1.35;
+}
+
+/* ---------- step 3: pills (native radios) ---------- */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  position: relative;
+  display: inline-flex;
+  padding: 10px 16px;
+  border: 1px solid rgba(var(--line-rgb), 0.2);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #c9dceb;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill:hover {
+  border-color: rgba(var(--accent-rgb), 0.4);
+}
+
+.pill:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #0a1520;
+}
+
+/* ---------- buttons ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary {
+  border: 0;
+  background: var(--accent);
+  color: #0a1520;
+}
+
+.primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(var(--accent-rgb), 0.18);
+}
+
+.ghost {
+  border: 1px solid rgba(var(--line-rgb), 0.25);
+  background: none;
+  color: #c9dceb;
+  font-weight: 600;
+}
+
+.ghost:hover:not(:disabled) {
+  border-color: rgba(var(--line-rgb), 0.5);
+}
+
+.primary:disabled,
+.ghost:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.primary:focus-visible,
+.ghost:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.error {
+  margin: 14px 0 0;
+  color: #fb7185;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.error a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* ---------- confirmation ---------- */
+.done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 44px;
+  padding-bottom: 44px;
+  text-align: center;
+}
+
+.doneIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent);
+  animation: pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.doneIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.doneTitle {
+  margin: 0 0 10px;
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: 700;
+  outline: none;
+}
+
+.doneText {
+  max-width: 24rem;
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.doneText a {
+  color: var(--accent);
+}
+
+/* ---------- aside ---------- */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.spec,
+.next {
+  padding: 22px 20px;
+}
+
+.specTitle {
+  margin: 0 0 14px;
+  color: rgba(var(--line-rgb), 0.6);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.specList {
+  margin: 0;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(var(--line-rgb), 0.16);
+  font-size: 0.8rem;
+}
+
+.specRow:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.specRow dt {
+  flex: none;
+  color: var(--muted);
+}
+
+.specRow dd {
+  margin: 0;
+  color: var(--foreground);
+  font-weight: 600;
+  text-align: right;
+}
+
+.specRow dd[data-empty] {
+  color: rgba(var(--line-rgb), 0.4);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.nextList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nextList li {
+  display: flex;
+  gap: 14px;
+}
+
+.nextNum {
+  flex: none;
+  min-width: 1.6em;
+  padding-top: 2px;
+  color: var(--accent);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.nextList b {
+  color: var(--foreground);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.nextList p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* ---------- motion ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .side,
+  .panel,
+  .doneIcon {
+    animation: none;
+  }
+  .need:hover,
+  .primary:hover:not(:disabled) {
+    transform: none;
+  }
+}

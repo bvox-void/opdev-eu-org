@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Sidebar from "@/components/sidebar/sidebar";
 import { ArrowIcon } from "@/components/ui/icons";
-import { SHEETS } from "@/lib/nav";
+import { BRIEF_HREF, SHEETS } from "@/lib/nav";
 import { SITE } from "@/lib/site";
 import styles from "./navbar.module.css";
 
@@ -40,7 +40,7 @@ export default function NavBar() {
           ))}
         </nav>
 
-        <Link href="/contact" className={styles.cta}>
+        <Link href={BRIEF_HREF} className={styles.cta}>
           Build with me
           <ArrowIcon />
         </Link>

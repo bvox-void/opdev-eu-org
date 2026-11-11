@@ -130,3 +130,22 @@ export function GaugeIcon() {
     </Stroke>
   );
 }
+
+export function PaletteIcon() {
+  return (
+    <Stroke>
+      <path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-.9 2-1.8 0-1.3-1-1.6-1-2.7 0-1 .8-1.5 1.8-1.5H17a4 4 0 0 0 4-4C21 6.8 17 3 12 3z" />
+      <circle cx="7.5" cy="11" r="1" />
+      <circle cx="10" cy="7" r="1" />
+      <circle cx="14.5" cy="7" r="1" />
+    </Stroke>
+  );
+}
+
+export function CheckIcon() {
+  return (
+    <Stroke>
+      <path d="m5 12.5 4.5 4.5L19 7.5" />
+    </Stroke>
+  );
+}

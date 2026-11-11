@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { BRIEF_HREF } from "@/lib/nav";
 import { CONTACTS } from "@/lib/site";
 import {
   ArrowIcon,
@@ -54,7 +55,7 @@ export default function Hero() {
         </div>
 
         <div className={styles.cta}>
-          <Link href="/start" className={styles.primary}>
+          <Link href={BRIEF_HREF} className={styles.primary}>
             Build with me
             <ArrowIcon />
           </Link>

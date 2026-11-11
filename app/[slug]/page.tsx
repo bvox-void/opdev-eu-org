@@ -9,7 +9,7 @@ import { NAV_ITEMS } from "@/lib/nav";
  * ...) one by one as the pages get designed; a real folder wins over [slug].
  */
 
-export const dynamicParams = false; // any other slug (e.g. /start) -> 404
+export const dynamicParams = false; // any other slug (e.g. /contact) -> 404
 
 export function generateStaticParams() {
   return NAV_ITEMS.map((s) => ({ slug: s.href.slice(1) }));
