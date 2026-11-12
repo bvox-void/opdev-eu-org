@@ -25,9 +25,14 @@ export default function Services() {
   return (
     <div className={styles.inner}>
       <header className={styles.head}>
+        <span className={styles.eyebrow}>services</span>
         <h1 className={styles.title}>
           Everything a store needs to <span>grow</span>
         </h1>
+        <p className={styles.lead}>
+          Custom stores, payments, integrations and AI automation on React and
+          Next.js. Fast on every device and readable by AI search.
+        </p>
       </header>
 
       <ul className={styles.grid}>

@@ -23,9 +23,9 @@ export const BRIEF_HREF = "/brief";
 
 export const SHEETS: readonly SheetInfo[] = [
   { number: "01", title: "home", label: "Home", href: "/" },
-  { number: "02", title: "services", label: "Services", href: "/services" },
-  { number: "03", title: "brief", label: "Brief", href: BRIEF_HREF },
-  { number: "04", title: "stack", label: "Stack", href: "/stack" },
+  { number: "02", title: "stack", label: "Stack", href: "/stack" },
+  { number: "03", title: "services", label: "Services", href: "/services" },
+  { number: "04", title: "brief", label: "Brief", href: BRIEF_HREF },
   { number: "05", title: "about", label: "About", href: "/about" },
 ];
 

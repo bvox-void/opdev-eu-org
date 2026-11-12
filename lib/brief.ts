@@ -1,5 +1,5 @@
 /**
- * Single source of truth for the Brief sheet (sheet 03): the options of the
+ * Single source of truth for the Brief sheet (sheet 04): the options of the
  * form, the field limits and the "what happens next" steps. The page UI and
  * its JSON-LD are both generated from here.
  * No JSX: `icon` is a key that components/brief maps to an SVG.
