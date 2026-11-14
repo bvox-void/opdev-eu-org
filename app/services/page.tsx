@@ -50,7 +50,7 @@ const jsonLd = {
 
 export default function ServicesPage() {
   return (
-    <Sheet number="02" title="Services">
+    <Sheet number="03" title="Services">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

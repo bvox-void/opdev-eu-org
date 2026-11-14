@@ -55,7 +55,7 @@ const jsonLd = {
 
 export default function BriefPage() {
   return (
-    <Sheet number="03" title="Brief">
+    <Sheet number="04" title="Brief">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
