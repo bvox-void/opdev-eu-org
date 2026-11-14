@@ -1,11 +1,13 @@
 /**
  * Single source of truth for the site's sheets (pages).
- * NavBar, Sidebar, the footer pager and the placeholder pages all read this.
+ * NavBar, Sidebar and the footer pager all read this. Every sheet is a real
+ * folder in app/ (app/stack, app/services, ...): adding a sheet means adding
+ * an entry here AND its page.
  *
  * Sheet 01 is the cover (the hero): the logo links to it, so it is not in the
- * NavBar. Rename labels / titles / hrefs here when the real pages are decided.
+ * NavBar.
  *
- * Sheet 03 is the project brief (the order form). Every "Build with me"
+ * Sheet 04 is the project brief (the order form). Every "Build with me"
  * button on the site links to BRIEF_HREF.
  */
 
